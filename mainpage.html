@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meus Filmes Favoritos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <section class="add-movie">
+      <h2>Adicionar Filme</h2>
+      <input type="text" id="movie-name" placeholder="Nome do filme" required>
+      <select id="movie-genre" required>
+        <option value="" disabled selected>Selecione o gênero</option>
+        <option value="Ação">Ação</option>
+        <option value="Aventura">Aventura</option>
+        <option value="Comédia">Comédia</option>
+        <option value="Drama">Drama</option>
+        <option value="Ficção Científica">Ficção Científica</option>
+        <option value="Fantasia">Fantasia</option>
+        <option value="Terror">Terror</option>
+        <option value="Suspense">Suspense</option>
+        <option value="Romance">Romance</option>
+        <option value="Documentário">Documentário</option>
+        <option value="Musical">Musical</option>
+      </select>
+      <input type="number" id="movie-rating" placeholder="Nota (0-10)" min="0" max="10" step="0.1">
+      <input type="url" id="movie-image" placeholder="URL da imagem (opcional)">
+      <button id="add-movie-btn">Adicionar</button>
+    </section>
+
+    <section class="movie-list">
+      <h2>Lista de Filmes</h2>
+      <ul id="movies"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
