@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meus Filmes Favoritos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="CSS/mainpage.css">
 </head>
 <body>
 
   <main>
-    <section class="add-movie">
-      <h2>Adicionar Filme</h2>
-      <input type="text" id="movie-name" placeholder="Nome do filme" required>
-      <select id="movie-genre" required>
-        <option value="" disabled selected>Selecione o gênero</option>
+      <form>
+        <input type="text" id="movie-name" placeholder="Nome do filme" required>
+        <input type="text" id="movie-director" placeholder="Diretor do filme" required>
+        <input type="text" id="movie-year" placeholder="Ano de lançamento" required pattern="\d{4}" title="Por favor, insira um ano válido (4 dígitos)">
+        <input type="text" id="movie-duration" placeholder="Duração (em minutos)" required pattern="\d+" title="Por favor, insira uma duração válida (números apenas)">
+        <input type="text" id="movie-comments" placeholder="Comentário do filme" required>
+
+        <select id="movie-genre" required>
         <option value="Ação">Ação</option>
         <option value="Aventura">Aventura</option>
         <option value="Comédia">Comédia</option>
@@ -26,11 +29,25 @@
         <option value="Documentário">Documentário</option>
         <option value="Musical">Musical</option>
         <option value="Infantil">Infantil</option>
-      </select>
-      <input type="number" id="movie-rating" placeholder="Nota (0-10)" min="0" max="10" step="0.1">
-      <input type="url" id="movie-image" placeholder="URL da imagem (opcional)">
-      <button id="add-movie-btn">Adicionar</button>
-    </section>
+      
+
+        </select>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="movie-rating" value="5"><label for="star5" title="5 estrelas">★</label>
+          <input type="radio" id="star4" name="movie-rating" value="4"><label for="star4" title="4 estrelas">★</label>
+          <input type="radio" id="star3" name="movie-rating" value="3"><label for="star3" title="3 estrelas">★</label>
+          <input type="radio" id="star2" name="movie-rating" value="2"><label for="star2" title="2 estrelas">★</label>
+          <input type="radio" id="star1" name="movie-rating" value="1"><label for="star1" title="1 estrela">★</label>
+        </div>
+
+        <input type="url" id="movie-image" placeholder="URL da imagem (opcional)">
+        <button id="add-movie-btn">Adicionar</button>
+      </form>  
+
+  <section class="hero">
+    <h1>Bem-vindo à Filmoteca</h1>  
+    <p>Acompanhe seus filmes favoritos, adicione novos títulos e acompanhe seus títulos.</p>
+
 
     <section class="movie-list">
       <h2>Lista de Filmes</h2>
@@ -38,6 +55,6 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="JS/mainpage.js"></script>
 </body>
 </html>
