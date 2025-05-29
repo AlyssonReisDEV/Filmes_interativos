@@ -122,25 +122,25 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.appendChild(modalImage);
         }
 
-        const modalTitle = document.createElement("h2");
+        const modalTitle = document.createElement("movie-name");
         modalTitle.textContent = movie.name;
 
-        const modalDirector = document.createElement("p");
+        const modalDirector = document.createElement("movie-director");
         modalDirector.innerHTML = `<strong>Diretor:</strong> ${movie.director}`;
 
-        const modalYear = document.createElement("p");
+        const modalYear = document.createElement("movie-year");
         modalYear.innerHTML = `<strong>Ano:</strong> ${movie.year}`;
 
-        const modalDuration = document.createElement("p");
+        const modalDuration = document.createElement("movie-duration");
         modalDuration.innerHTML = `<strong>Duração:</strong> ${movie.duration} min`;
 
-        const modalGenre = document.createElement("p");
+        const modalGenre = document.createElement("movie-comments");
         modalGenre.innerHTML = `<strong>Gênero:</strong> ${movie.genre}`;
 
-        const modalRating = document.createElement("p");
+        const modalRating = document.createElement("movie-genre");
         modalRating.innerHTML = `<strong>Nota:</strong> ${"★".repeat(movie.rating)}${"☆".repeat(5 - movie.rating)}`;
 
-        const modalComments = document.createElement("p");
+        const modalComments = document.createElement("movie-image");
         modalComments.innerHTML = `<strong>Comentário:</strong> ${movie.comments}`;
 
         // Fecha o modal clicando no X
