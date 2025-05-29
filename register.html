@@ -22,12 +22,29 @@
     <section class="register">
       <h2>Crie sua conta</h2>
       <form id="register-form">
+
         <input type="text" id="register-username" placeholder="Nome" required>
-        <input type="password" id="register-password" placeholder="Senha" required>
-        <input type="email" id="email" name="email" placeholder="Email" required>
-        <input type="tel" id="celular" name="celular" placeholder="Telefone" required>
+
+        <div class="input-group">
+                    <input type="password" id="senha" placeholder="********" required>
+                    <i class="fa-solid fa-lock"></i>
+                    <span class="eye" onclick="togglePassword()"></span>
+                </div>
+
+        <div class="input-group">
+                    <input type="email" id="email" placeholder="exemplo@email.com" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+        <div class="input-group">
+                    <input type="text" id="Telefone" placeholder="(XX)XXXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
         <input type="number" id="idade" name="idade" placeholder="Idade" min="0" required>
+
         <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+
         <button type="submit">Cadastrar</button>
       </form>
       <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>

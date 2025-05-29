@@ -22,9 +22,18 @@
     <section class="login">
       <h2>Entre na sua conta</h2>
       <form id="login">
-        <input type="text" id="email" placeholder="Usuário" required>
-        <input type="password" id="senha" placeholder="Senha" required>
-        <button type="button" id="eye" onclick="togglePassword()">👁️</button>
+        
+        <div class="input-group">
+                    <input type="email" id="email" placeholder="exemplo@email.com" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+        <div class="input-group">
+                    <input type="password" id="senha" placeholder="********" required>
+                    <i class="fa-solid fa-lock"></i>
+                    <span class="eye" onclick="togglePassword()"></span>
+                </div>
+
         <button type="submit">Entrar</button>
       </form>
       <div id="mensagem"></div>
