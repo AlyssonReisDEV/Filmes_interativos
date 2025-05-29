@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadastro - Meus Filmes Favoritos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cadastro.css">
 </head>
+
 <body>
 
   <header>
     <h1>Cadastro</h1>
-  </header>  
+  </header>
 
   <main>
     <section class="register">
       <h2>Crie sua conta</h2>
       <form id="register-form">
-        <input type="text" id="register-username" placeholder="Usuário" required>
+        <input type="text" id="register-username" placeholder="Nome" required>
         <input type="password" id="register-password" placeholder="Senha" required>
+        <input type="email" id="email" name="email" placeholder="email" required>
+        <input type="tel" id="celular" name="celular" placeholder="Telefone" required>
+        <input type="number" id="idade" name="idade" placeholder="Idade" min="0" required>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
         <button type="submit">Cadastrar</button>
       </form>
       <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
@@ -26,4 +32,5 @@
 
   <script src="auth.js"></script>
 </body>
+
 </html>
