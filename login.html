@@ -15,15 +15,17 @@
   <main>
     <section class="login">
       <h2>Entre na sua conta</h2>
-      <form id="login-form">
-        <input type="text" id="login-username" placeholder="Usuário" required>
-        <input type="password" id="login-password" placeholder="Senha" required>
+      <form id="login">
+        <input type="text" id="email" placeholder="Usuário" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <button type="button" id="eye" onclick="togglePassword()">👁️</button>
         <button type="submit">Entrar</button>
       </form>
+      <div id="mensagem"></div>
       <p>Não tem uma conta? <a href="register.html">Cadastre-se aqui</a></p>
     </section>
   </main>
 
-  <script src="auth.js"></script>
+  <script src="JS/login.js"></script>
 </body>
 </html>
