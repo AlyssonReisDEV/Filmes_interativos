@@ -55,7 +55,7 @@ form.addEventListener('submit',(e)=>{
     //Simulação de redirecionamento
     setTimeout(() => {
         window.location.href = 'mainpage.html';
-    }, 2000);
+    }, 1000);
 });
 
 

@@ -64,6 +64,10 @@ header nav ul li a.active {
 
 
 main {
+    background-image: url('/assets/CAMERA.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     flex: 1;
     display: flex;
     justify-content: center;
