@@ -107,13 +107,14 @@ form#login {
 
 .input-group input {
     width: calc(100% - 48px);
-    padding: 14px 14px 14px 38px; 
+    padding: 14px 40px 14px 38px; 
     background-color: #333333;
     color: #F0F0F0;
     border: 1px solid #555555;
     border-radius: 5px;
     font-size: 1em;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .input-group input:focus {
@@ -144,14 +145,17 @@ form#login {
 }
 
 
-.input-group .eye {
+.input-group span.eye {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #aaa; 
+    color: #FFC107;
     font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .eye::before { 

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login - Meus Filmes Favoritos</title>
   <link rel="stylesheet" href="./CSS/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -24,18 +26,21 @@
       <form id="login">
         
         <div class="input-group">
-                    <input type="email" id="email" placeholder="exemplo@email.com" required>
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
+          <input type="email" id="email" placeholder="exemplo@email.com" required>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
 
         <div class="input-group">
-                    <input type="password" id="senha" placeholder="********" required>
-                    <i class="fa-solid fa-lock"></i>
-                    <span class="eye" onclick="togglePassword()"></span>
-                </div>
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="senha" placeholder="********" required>
+          <span class="eye" id="eye" onclick="togglePassword()">
+            <i class="fa-solid fa-eye" id="eye-icon"></i>
+          </span>
+        </div>
 
         <button type="submit">Entrar</button>
       </form>
+
       <div id="mensagem"></div>
       <p>Não tem uma conta? <a href="register.html">Cadastre-se aqui</a></p>
       <p>esqueceu sua senha? <a href="recovery.html">Recuperar</a></p>

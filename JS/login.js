@@ -74,13 +74,17 @@ function showMessage(text, type){
  // Botão de mostrar/ocultar senha
     window.togglePassword = function() {
         const senhaInput = document.getElementById('senha');
-        const eye = document.getElementById('eye');
+        const eyeIcon = document.getElementById('eye-icon');
+
         if (senhaInput.type === 'password') {
             senhaInput.type = 'text';
-            eye.textContent = '🙈';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
         } else {
             senhaInput.type = 'password';
-            eye.textContent = '👁️';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
         }
+        
     }
 });
