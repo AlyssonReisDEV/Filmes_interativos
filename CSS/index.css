@@ -1,4 +1,4 @@
-
+/* === GERAL === */
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -40,34 +40,22 @@ img {
     border-color: #FFFF00;
 }
 
+/* === HEADER === */
 header {
-    background-color: #191f2ea6;
-    padding: 10px  10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #B8860B; 
-    border-radius: 0 0 10px 10px;
+    padding: 10px 5%;
+    border-bottom: 3px solid #B8860B;
+    box-sizing: border-box;
+    height: 100px;
+    overflow: hidden;
 }
 
-.logo img {
-    height: 80px;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-header nav ul li {
-    margin-left: 25px;
-}
-
-header nav ul li a {
-    font-size: 1.1em;
-    font-weight: bold;
+.logo-container img {
+    height: 140px;
+    width: auto;
+    display: block;
 }
 
 .user-actions a {
@@ -82,8 +70,9 @@ header nav ul li a {
     color: #121212;
 }
 
+/* === MAIN === */
 .hero {
-    background-image: url('/assets/CAMERA.svg'); 
+    background-image: url('/assets/CAMERA.svg');
     background-size: cover;
     background-position: center left;
     background-repeat: no-repeat;
@@ -114,7 +103,7 @@ header nav ul li a {
 
 .feature1,
 .feature2 {
-    background-image: url('/assets/CADEIRA.svg') ;
+    background-image: url('/assets/CADEIRA.svg');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -123,29 +112,13 @@ header nav ul li a {
     background-color: #1E1E1E;
     border: 1px solid #333333;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.1); 
-}
-
-.feature1 img,
-.feature2 img {
-    width: 80px; 
-    height: 80px;
-    margin-bottom: 20px;
-    background-color: #333;
-    border-radius: 50%;
-    border: 2px solid #FFD700;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: #FFD700;
-    font-weight: bold; 
-
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.1);
 }
 
 .feature1 h2,
 .feature2 h2 {
     font-size: 1.8em;
-    color: #FFD700; 
+    color: #FFD700;
     margin-bottom: 10px;
 }
 
@@ -154,28 +127,14 @@ header nav ul li a {
     font-size: 1em;
     color: #BDBDBD;
 }
-.feature1 img,
-.feature2 img {
-    width: 80px; 
-    height: 80px;
-    margin-bottom: 20px;
-    background-color: #333;
-    border-radius: 50%;
-    border: 2px solid #1f0e03;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: #FFD700;
-    font-weight: bold; 
 
-}
-
+/* === FOOTER === */
 footer {
     background-color: #121212;
     color: #A0A0A0;
     text-align: center;
     padding: 30px 20px;
-    border-top: 2px solid #B8860B; 
+    border-top: 2px solid #B8860B;
 }
 
 .footer-links a {
@@ -192,20 +151,11 @@ footer p {
     font-size: 0.9em;
 }
 
+/* === MEDIA QUERIES === */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 15px 5%;
-    }
-
-    header nav ul {
-        margin-top: 15px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
     }
 
     .user-actions {
@@ -229,7 +179,8 @@ footer p {
         align-items: center;
     }
 
-    .feature {
+    .feature1,
+    .feature2 {
         margin-bottom: 30px;
         width: 80%;
     }

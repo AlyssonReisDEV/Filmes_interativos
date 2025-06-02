@@ -89,6 +89,15 @@ main {
     border: 1px solid #444;
 }
 
+.register-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    font-size: 0.95em;
+    color: #FFD700;
+}
+
+
 .register h2 {
     color: #FFD700;
     margin-top: 0;
@@ -102,7 +111,11 @@ form#register-form {
 }
 
 form#register-form input[type="text"],
-form#register-form input[type="number"] {
+form#register-form input[type="number"],
+form#register-form input[type="date"],
+form#register-form input[type="email"],
+form#register-form input[type="password"],
+form#register-form input[type="tel"] {
     width: calc(100% - 28px);
     padding: 14px;
     margin-bottom: 20px;
@@ -112,6 +125,7 @@ form#register-form input[type="number"] {
     border-radius: 5px;
     font-size: 1em;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 form#register-form input[type="text"]:focus,
@@ -124,7 +138,7 @@ form#register-form input[type="number"]:focus {
 
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .input-group input { 
@@ -178,27 +192,29 @@ input::-ms-input-placeholder {
     content: ""; 
 }
 
-form#register-form button[type="submit"] {
-    background-color: #FFC107;
-    color: #121212;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase;
-    margin-top: 10px;
+form button[type="submit"] {
+  background-color: #FFC107;
+  color: #121212;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  margin-top: 10px;
+  width: 50%;
+  align-self: center;
 }
 
-form#register-form button[type="submit"]:hover {
-    background-color: #FFD54F;
-    transform: translateY(-2px);
+form button[type="submit"]:hover {
+  background-color: #FFD54F;
+  transform: translateY(-2px);
 }
 
 .register p {
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 0.95em;
     color: #BDBDBD;
 }

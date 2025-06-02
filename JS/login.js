@@ -1,90 +1,66 @@
-document.addEventListener('DOMContentLoaded', function() {
-const form = document.getElementById('login');
-const mensagem = document.getElementById('mensagem');
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Seletores principais
+    const form = document.getElementById('login');
+    const mensagem = document.getElementById('mensagem');
 
-// Usuário mock
-const usuarioMock = {
-    email: 'teste@exemplo.com',
-    senha: '12345678'
-};
+    // 2. Dados simulados (usuário mock)
+    const usuarioMock = {
+        email: 'teste@exemplo.com',
+        senha: '12345678'
+    };
 
-// mostrar ocultar senha
-function togglePassword(){
-    const senha = document.getElementById('senha');
-    const eye = document.getElementById('eye');
+    // 3. Função para exibir mensagens
+    function showMessage(text, type) {
+        mensagem.textContent = text;
+        mensagem.className = type;
 
-    if(senha.type === 'password') {
-        senha.type = 'text';
-        eye.textContent = 'O';
-    } else {
-        senha.type = 'password';
-        eye.textContent = 'E';
-    }
-}
-
-// validar login
-form.addEventListener('submit',(e)=>{
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
-
-    // Expressão regular para validar e-mail
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Mostrar erro se NÃO for válido
-    if(!emailRegex.test(email)){
-        showMessage('Por favor inserir um e-mail válido', 'error');
-        return;
-    }
-    if(senha.length < 8){
-        showMessage('Por favor inserir uma senha com no mínimo 8 caracteres', 'error');
-        return;
+        setTimeout(() => {
+            mensagem.textContent = '';
+            mensagem.className = '';
+        }, 3000);
     }
 
-    // Verificação do usuário mock
-    if(email !== usuarioMock.email || senha !== usuarioMock.senha){
-        showMessage('Usuário ou senha inválidos', 'error');
-        return;
-    }
-
-    //Simulação de login bem-sucedido
-    showMessage('Login realizado com sucesso! Redirecionando...','sucess');
-    form.reset();
-
-    //Simulação de redirecionamento
-    setTimeout(() => {
-        window.location.href = 'mainpage.html';
-    }, 1000);
-});
-
-
-// Exibir mensagem
-function showMessage(text, type){
-    mensagem.textContent = text;
-    mensagem.className = type;
-
-    //Reset após 3 segundos
-    setTimeout(() => {
-        mensagem.textContent = '';
-        mensagem.className = '';
-    }, 3000);
-}
-
- // Botão de mostrar/ocultar senha
-    window.togglePassword = function() {
+    // 4. Função para mostrar/ocultar a senha
+    window.togglePassword = function () {
         const senhaInput = document.getElementById('senha');
         const eyeIcon = document.getElementById('eye-icon');
 
-        if (senhaInput.type === 'password') {
-            senhaInput.type = 'text';
-            eyeIcon.classList.remove('fa-eye');
-            eyeIcon.classList.add('fa-eye-slash');
-        } else {
-            senhaInput.type = 'password';
-            eyeIcon.classList.remove('fa-eye-slash');
-            eyeIcon.classList.add('fa-eye');
+        const isPassword = senhaInput.type === 'password';
+
+        senhaInput.type = isPassword ? 'text' : 'password';
+        eyeIcon.classList.toggle('fa-eye', !isPassword);
+        eyeIcon.classList.toggle('fa-eye-slash', isPassword);
+    };
+
+    // 5. Validação e envio do formulário
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            showMessage('Por favor inserir um e-mail válido', 'error');
+            return;
         }
-        
-    }
+
+        if (senha.length < 8) {
+            showMessage('Por favor inserir uma senha com no mínimo 8 caracteres', 'error');
+            return;
+        }
+
+        if (email !== usuarioMock.email || senha !== usuarioMock.senha) {
+            showMessage('Usuário ou senha inválidos', 'error');
+            return;
+        }
+
+        showMessage('Login realizado com sucesso! Redirecionando...', 'sucess');
+        form.reset();
+
+        setTimeout(() => {
+            window.location.href = 'mainpage.html';
+        }, 1000);
+    });
 });

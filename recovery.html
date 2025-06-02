@@ -9,27 +9,34 @@
     <body>
 
         <header>
-            <div class="logo"><img src="assets/logo filmoteca.jpg" alt="Logo"></div>
-            <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            </nav>
+            <div class="logo-container">
+            <a href="index.html">
+                <img src="assets/logo_filmoteca-removebg-preview.png" alt="Filmoteca logo">
+            </a>
+            </div>
+
+            <div class="user-actions">
+            <a href="login.html">Fazer Login</a>
+            
+            <a href="register.html">Cadastrar-se</a>
+            </div>
         </header>
+
+       
 
         <main>
             <section class="login">
-            <h2>Recuperar Senha</h2>
-            <form id="recuperar-form">
-                <div class="input-group">
-                <input type="email" id="email" placeholder="Digite seu e-mail" required>
-                <i class="fa-solid fa-envelope"></i>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-            <div id="mensagem"></div>
-            <p>Lembrou sua senha? <a href="login.html">Voltar ao login</a></p>
+                <h2>Recuperar Senha</h2>
+                <form id="recuperar-form">
+                    <div class="input-group">
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                    <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+                
+                <div id="mensagem"></div>
+                <p>Lembrou sua senha? <a href="login.html">Voltar ao login</a></p>
             </section>
         </main>
         <script src="JS/recovery.js"></script>
@@ -37,8 +44,8 @@
     </body>  
     <footer>
         <div class="footer-links">
-        <a href="about.html">Sobre</a>
-        <a href="politics.html">Privacidade</a>
+            <a href="about.html">Sobre</a>
+            <a href="politics.html">Privacidade</a>
         </div>
         <p>&copy; 2025 Filmoteca</p>
     </footer>

@@ -1,4 +1,4 @@
-
+/* === GERAL === */
 body {
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -20,49 +20,45 @@ a:hover {
     color: #FFD54F;
 }
 
-
+/* === HEADER === */
 header {
-    background-color: #191f2ea6; 
-    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #B8860B; 
-    width: 100%;
+    padding: 10px 5%;
+    border-bottom: 3px solid #B8860B;
     box-sizing: border-box;
+    height: 100px;
+    overflow: hidden;
 }
 
-.logo img {
-    height: 90px;
-    border-radius: 4px;
+.logo-container img {
+    height: 140px;
+    width: auto;
+    display: block;
 }
 
-header nav ul {
+.user-actions {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-header nav ul li {
-    margin-left: 30px;
-}
-
-header nav ul li a {
-    font-size: 1.1em;
-    font-weight: 500;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-header nav ul li a:hover,
-header nav ul li a.active {
+.user-actions li a {
     color: #FFD700;
-    border-bottom-color: #FFD700;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
+.user-actions li a:hover {
+    color: #FFFF00;
+    border-bottom: 2px solid #FFD700;
+}
 
+/* === MAIN === */
 main {
     background-image: url('/assets/CAMERA.svg');
     background-size: cover;
@@ -79,7 +75,7 @@ main {
 
 .login {
     background-color: #2A2A2A;
-    padding: 35px 40px;
+    padding: 35px 75px 50px 40px;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -107,20 +103,23 @@ form#login {
 
 .input-group input {
     width: calc(100% - 48px);
-    padding: 14px 40px 14px 38px; 
+    padding: 14px 40px 14px 38px;
     background-color: #333333;
     color: #F0F0F0;
     border: 1px solid #555555;
     border-radius: 5px;
     font-size: 1em;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
 }
 
 .input-group input:focus {
     outline: none;
     border-color: #FFC107;
     box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+}
+
+.input-group input::placeholder {
+    color: #888;
 }
 
 .input-group i.fa-solid {
@@ -131,19 +130,6 @@ form#login {
     color: #FFC107;
     font-size: 1.1em;
 }
-
-
-.input-group input::placeholder {
-    color: #888;
-    opacity: 1;
-}
-.input-group input:-ms-input-placeholder {
-   color: #888;
-}
-.input-group input::-ms-input-placeholder { 
-   color: #888;
-}
-
 
 .input-group span.eye {
     position: absolute;
@@ -158,14 +144,7 @@ form#login {
     justify-content: center;
 }
 
-.eye::before { 
-    content: "";
-
-}
-
-
-
-form#login button[type="submit"] {
+form button[type="submit"] {
     background-color: #FFC107;
     color: #121212;
     padding: 14px 20px;
@@ -176,19 +155,21 @@ form#login button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-transform: uppercase;
-    margin-top: 10px; 
+    margin-top: 10px;
+    width: 50%;
+    align-self: center;
 }
 
-form#login button[type="submit"]:hover {
+form button[type="submit"]:hover {
     background-color: #FFD54F;
     transform: translateY(-2px);
 }
 
 #mensagem {
     margin-top: 15px;
-    color: #FF6B6B; 
+    color: #FF6B6B;
     font-size: 0.9em;
-    min-height: 1.2em; 
+    min-height: 1.2em;
 }
 
 .login p {
@@ -226,17 +207,19 @@ footer p {
     font-size: 0.9em;
 }
 
-
+/* === MEDIA QUERIES === */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 15px 3%;
     }
+
     header nav ul {
         margin-top: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
+
     header nav ul li {
         margin: 5px 10px;
     }
