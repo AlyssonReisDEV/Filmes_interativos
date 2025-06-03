@@ -1,53 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    let movieList = JSON.parse(localStorage.getItem("movieList")) || [];
+
     const addMovieButton = document.getElementById("add-movie-btn");
 
     addMovieButton.addEventListener("click", (e) => {
         e.preventDefault();
 
         // Pega os campos do forms
-        const nameField = document.getElementById("movie-name");
-        const directorField = document.getElementById("movie-director");
-        const yearField = document.getElementById("movie-year");
-        const durationField = document.getElementById("movie-duration");
-        const commentsField = document.getElementById("movie-comments");
-        const genreField = document.getElementById("movie-genre");
-        const imageField = document.getElementById("movie-image");
-
-        // Pega o valor da estrela selecionada
+        const name = document.getElementById("movie-name").value.trim();
+        const director = document.getElementById("movie-director").value.trim();
+        const year = document.getElementById("movie-year").value.trim();
+        const duration = document.getElementById("movie-duration").value.trim();
+        const comments = document.getElementById("movie-comments").value.trim();
+        const genre = document.getElementById("movie-genre").value;
+        const image = document.getElementById("movie-image").value.trim();
         const ratingRadio = document.querySelector('input[name="movie-rating"]:checked');
         const rating = ratingRadio ? ratingRadio.value : "";
 
-        // Pega os valores digitados
-        const name = nameField.value.trim();
-        const director = directorField.value.trim();
-        const year = yearField.value.trim();
-        const duration = durationField.value.trim();
-        const comments = commentsField.value.trim();
-        const genre = genreField.value;
-        const image = imageField ? imageField.value.trim() : "";
-
-        // Verificação dos campos obrigatórios
         if (!name || !director || !year || !duration || !comments || !genre || !rating) {
             alert("Por favor, preencha todos os campos obrigatórios.");
             return;
         }
 
-        // Cria o objeto do filme
-        const movie = { name, director, year, duration, comments, genre, rating, image };
+        const movie = {
+            name,
+            director,
+            year,
+            duration,
+            comments,
+            genre,
+            rating,
+            image,
+            favorite: false
+        };
 
-        // Função para adicionar o filme à lista
+        movieList.push(movie);
+        saveMovieList();
         renderMovie(movie);
-
-        // Limpa os campos após adicionar o filme
-        nameField.value = "";
-        directorField.value = "";
-        yearField.value = "";
-        durationField.value = "";
-        commentsField.value = "";
-        genreField.selectedIndex = 0;
-        if (imageField) imageField.value = "";
-        document.querySelectorAll('input[name="movie-rating"]').forEach(r => r.checked = false);
+        clearForm();
     });
+
+    function saveMovieList() {
+        localStorage.setItem("movieList", JSON.stringify(movieList));
+    }
+
+    function clearForm() {
+        document.getElementById("movie-name").value = "";
+        document.getElementById("movie-director").value = "";
+        document.getElementById("movie-year").value = "";
+        document.getElementById("movie-duration").value = "";
+        document.getElementById("movie-comments").value = "";
+        document.getElementById("movie-genre").selectedIndex = 0;
+        document.getElementById("movie-image").value = "";
+        document.querySelectorAll('input[name="movie-rating"]').forEach(r => r.checked = false);
+    }
 
     function renderMovie(movie) {
         let list = document.getElementById("movies");
@@ -56,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
             list.id = "movies";
             document.querySelector("main").appendChild(list);
         }
+
         const listItem = document.createElement("li");
         listItem.className = "movie-item";
 
-        // Imagem
         if (movie.image) {
             const thumbnail = document.createElement("img");
             thumbnail.src = movie.image;
@@ -68,38 +74,48 @@ document.addEventListener('DOMContentLoaded', function() {
             listItem.appendChild(thumbnail);
         }
 
-        // Título
         const title = document.createElement("span");
         title.className = "movie-title";
         title.textContent = `${movie.name} (${movie.year})`;
         listItem.appendChild(title);
 
-        // Botões de status
         const statusSpan = document.createElement("span");
         statusSpan.className = "movie-status";
         statusSpan.textContent = " | Status: À assistir";
 
         const assistidoBtn = document.createElement("button");
         assistidoBtn.textContent = "Assistido";
-        assistidoBtn.type = "button";
         assistidoBtn.onclick = () => {
-            statusSpan.textContent = " | Status: Assistido";
+        
         };
 
         const aAssistirBtn = document.createElement("button");
         aAssistirBtn.textContent = "À assistir";
-        aAssistirBtn.type = "button";
         aAssistirBtn.onclick = () => {
             statusSpan.textContent = " | Status: À assistir";
+        };
+
+        const favBtn = document.createElement("button");
+        favBtn.textContent = movie.favorite ? "★ Favorito" : "☆ Favoritar";
+        favBtn.onclick = () => {
+            movie.favorite = !movie.favorite;
+            favBtn.textContent = movie.favorite ? "★ Favorito" : "☆ Favoritar";
+            saveMovieList();
         };
 
         listItem.appendChild(statusSpan);
         listItem.appendChild(assistidoBtn);
         listItem.appendChild(aAssistirBtn);
+        listItem.appendChild(favBtn);
 
-        // Abre o modal ao clicar no filme
         listItem.addEventListener("click", () => showMovieModal(movie));
         list.appendChild(listItem);
+    }
+
+    function salvarComoAssistido(movie) {
+        let assistidos = JSON.parse(localStorage.getItem('assistidos')) || [];
+        assistidos.push(movie);
+        localStorage.setItem('assistido', JSON.stringify(assistidos));
     }
 
     function showMovieModal(movie) {
@@ -112,8 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeButton = document.createElement("span");
         closeButton.className = "close-btn";
         closeButton.innerHTML = "&times;";
+        closeButton.addEventListener("click", () => overlay.remove());
+        overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) overlay.remove();
+        });
 
-        // Adiciona a imagem no modal
         if (movie.image) {
             const modalImage = document.createElement("img");
             modalImage.src = movie.image;
@@ -122,45 +141,21 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.appendChild(modalImage);
         }
 
-        const modalTitle = document.createElement("movie-name");
-        modalTitle.textContent = movie.name;
+        modal.innerHTML += `
+            <h2>${movie.name}</h2>
+            <p><strong>Diretor:</strong> ${movie.director}</p>
+            <p><strong>Ano:</strong> ${movie.year}</p>
+            <p><strong>Duração:</strong> ${movie.duration} min</p>
+            <p><strong>Gênero:</strong> ${movie.genre}</p>
+            <p><strong>Nota:</strong> ${"★".repeat(movie.rating)}${"☆".repeat(5 - movie.rating)}</p>
+            <p><strong>Comentário:</strong> ${movie.comments}</p>
+        `;
 
-        const modalDirector = document.createElement("movie-director");
-        modalDirector.innerHTML = `<strong>Diretor:</strong> ${movie.director}`;
-
-        const modalYear = document.createElement("movie-year");
-        modalYear.innerHTML = `<strong>Ano:</strong> ${movie.year}`;
-
-        const modalDuration = document.createElement("movie-duration");
-        modalDuration.innerHTML = `<strong>Duração:</strong> ${movie.duration} min`;
-
-        const modalGenre = document.createElement("movie-comments");
-        modalGenre.innerHTML = `<strong>Gênero:</strong> ${movie.genre}`;
-
-        const modalRating = document.createElement("movie-genre");
-        modalRating.innerHTML = `<strong>Nota:</strong> ${"★".repeat(movie.rating)}${"☆".repeat(5 - movie.rating)}`;
-
-        const modalComments = document.createElement("movie-image");
-        modalComments.innerHTML = `<strong>Comentário:</strong> ${movie.comments}`;
-
-        // Fecha o modal clicando no X
-        closeButton.addEventListener("click", () => overlay.remove());
-        // Fecha o modal clicando fora dele 
-        overlay.addEventListener("click", (event) => {
-            if (event.target === overlay) overlay.remove();
-        });
-
-        // Monta o conteúdo do modal
         modal.appendChild(closeButton);
-        modal.appendChild(modalTitle);
-        modal.appendChild(modalDirector);
-        modal.appendChild(modalYear);
-        modal.appendChild(modalDuration);
-        modal.appendChild(modalGenre);
-        modal.appendChild(modalRating);
-        modal.appendChild(modalComments);
-
         overlay.appendChild(modal);
         document.body.appendChild(overlay);
     }
+
+    
+    movieList.forEach(renderMovie);
 });
