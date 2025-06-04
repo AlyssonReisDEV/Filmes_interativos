@@ -35,9 +35,25 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         movieList.push(movie);
-        saveMovieList();
-        renderMovie(movie);
-        clearForm();
+saveMovieList();
+renderMovie(movie);
+clearForm();
+
+// Envia o filme para o backend
+fetch("http://localhost:3000/filmes", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(movie),
+})
+.then((res) => {
+    if (!res.ok) throw new Error("Erro ao enviar filme para o backend");
+    console.log("Filme enviado com sucesso para o backend!");
+})
+.catch((err) => {
+    console.error("Erro ao enviar para o backend:", err);
+});
     });
 
     function saveMovieList() {

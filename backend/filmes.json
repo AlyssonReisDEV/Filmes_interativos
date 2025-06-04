@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Lilo e Stich",
+    "director": "Dean Fleischer Camp",
+    "year": "2025",
+    "duration": "108",
+    "comments": "Eu amei o filmeeeee",
+    "genre": "Infantil",
+    "rating": "5",
+    "image": "https://www.youloveit.com/uploads/posts/2024-11/1732789384_youloveit_com_lilo_and_stitch_2025_poster2.jpg",
+    "favorite": false
+  },
+  {
+    "name": "Terrifier 3",
+    "director": "Damien Leone",
+    "year": "2024",
+    "duration": "90",
+    "comments": "Filme muito bom, ótima continuação, bem aterrorizante",
+    "genre": "Terror",
+    "rating": "5",
+    "image": "https://ingresso-a.akamaihd.net/prd/img/movie/terrifier-3/d18eb521-d0a5-4e83-bd19-b01deb9b19d1.webp",
+    "favorite": false
+  },
+  {
+    "name": "Interestelar",
+    "director": "Christopher Nolan",
+    "year": "2014",
+    "duration": "100",
+    "comments": "O filme é um pouco massante, mas os efeitos visuais salvam bastante o filme, na realidade é um filme nota 7",
+    "genre": "Ficção Científica",
+    "rating": "4",
+    "image": "https://www.themoviedb.org/t/p/original/tYaC23U62BOJRNVIlFGT6iowEwj.jpg",
+    "favorite": false
+  },
+  {
+    "name": "Tropa de Elite",
+    "director": "José Padilha",
+    "year": "2007",
+    "duration": "115",
+    "comments": "Filme muito bom, retrata as forças operacionais no Brasil e como eles usam a força e o cargo deles",
+    "genre": "Ação",
+    "rating": "5",
+    "image": "https://www.cafecomfilme.com.br/media/k2/items/cache/8967817feb845c0d0259582eb5885ecc_XL.jpg?t=20160828_195108",
+    "favorite": false
+  }
+]
