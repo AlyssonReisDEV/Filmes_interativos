@@ -255,8 +255,11 @@ form button#add-movie-btn:hover {
     margin-top: 10px; 
     gap: 8px; 
 }
-
-
+.movie-item.assistido {
+    background: #89f3a1 !important; /* verde claro */
+    transition: background 0.3s;
+    color: #121212;
+}
 
 .movie-status .status-btn:hover {
     background-color: #FFD700;
