@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meus Filmes Favoritos</title>
   <link rel="stylesheet" href="./CSS/mainpage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -15,8 +17,20 @@
       <a href="index.html">
         <img src="assets/logo_filmoteca-removebg-preview.png" alt="Filmoteca logo">
       </a>
-     <a href="wishlist.html" class="wishlist-btn"><img src="assets/" alt="Lista de Favoritos"></a>
+    </div>
+
+    <nav>
+      <ul class="user-actions">
+        <li>
+          <a href="wishlist.html">
+            <i class="fa-solid fa-star"></i> Lista de Favoritos
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
+
+ 
 
   <main>
     <section class="hero">
@@ -56,7 +70,14 @@
       </div>
 
       <input type="url" id="movie-image" placeholder="URL da imagem (opcional)">
-      <button id="add-movie-btn">Adicionar</button>
+
+      <div class="botao-centralizado">
+        <button id="add-movie-btn">Adicionar</button>
+      </div>
+
+      <div id="message"></div>
+
+
     </form>
         <div class="filtros">
           <button id="filtro-todos">Todos</button>

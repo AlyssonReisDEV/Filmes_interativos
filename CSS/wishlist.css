@@ -1,38 +1,67 @@
+/* === BASE === */
 body {
-  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1C1C1C;
-  color: #F0F0F0;
-  line-height: 1.6;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
-  color: #FFC107;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    color: #FFC107;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-
 a:hover {
-  color: #FFD54F;
+    color: #FFD54F;
 }
 
+/* === HEADER === */
 header {
-  background-color: #191f2ea6;
-  padding: 15px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid #B8860B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    border-bottom: 3px solid #B8860B;
+    height: 100px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .logo-container img {
-  height: 90px;
-  border-radius: 4px;
+    height: 140px;
+    width: auto;
+    display: block;
 }
 
+.user-actions {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+.user-actions li a {
+    color: #FFD700;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+.user-actions li a:hover {
+    color: #FFFF00;
+    border-bottom: 2px solid #FFD700;
+}
+
+
+/* ======== Main ======== */
 main {
   padding: 30px 5%;
 }
 
+/* Hero Section */
 .hero {
   background-color: #252525;
   padding: 40px 30px;
@@ -53,6 +82,7 @@ main {
   font-size: 1.1em;
 }
 
+/* ======== Wishlist Section ======== */
 .wishlist h2 {
   color: #FFD700;
   margin-bottom: 20px;
@@ -70,6 +100,7 @@ main {
   gap: 25px;
 }
 
+/* Movie Item */
 .movie-item {
   background-color: #2A2A2A;
   padding: 20px;
@@ -87,11 +118,11 @@ main {
 
 .movie-item img.thumb {
   width: 150px;
-  height: auto;
   max-height: 200px;
   object-fit: contain;
   margin-bottom: 15px;
   border-radius: 5px;
+  height: auto;
 }
 
 .movie-title {
@@ -119,6 +150,7 @@ main {
   transform: scale(1.03);
 }
 
+/* ======== Footer ======== */
 footer {
   background-color: #121212;
   color: #A0A0A0;
@@ -142,6 +174,7 @@ footer p {
   font-size: 0.9em;
 }
 
+/* ======== Responsive ======== */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
